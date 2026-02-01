@@ -18,10 +18,10 @@ Projeto simples em Python para cadastro, listagem, edição e exclusão de pesso
 
 ```bash
 # Clone o repositório
-git clone https://github.com/seu-usuario/seu-repositorio.git
+git clone https://github.com/nayara-sab/sistema.cadastro.pessoas.git
 
 # Acesse a pasta do projeto
-cd seu-repositorio
+cd sistema.cadastro.pessoas
 
 # Execute o programa
 python main.py
@@ -31,9 +31,9 @@ python main.py
 
 Este projeto foi desenvolvido com o objetivo de praticar lógica de programação e organização de código.
 
-## Possíveis melhorias futuras
+## melhorias futuras
 
-- Adicionar persistência em arquivo (JSON ou CSV)
+- Adicionar persistência em arquivo (JSON)
 - Validar dados de entrada
 - Criar interface gráfica ou versão web
 
