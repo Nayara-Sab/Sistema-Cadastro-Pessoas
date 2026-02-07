@@ -1,160 +1,135 @@
-# Lista global que armazena todas as pessoas cadastradas
-# Cada pessoa será representada por um dicionário
+# Lista que guarda as pessoas cadastradas
+# Mantive como global para simplificar o projeto
 pessoas = []
 
 
 def menu():
-    """
-    Exibe o menu principal do sistema com as opções disponíveis.
-    """
-    print("\n--- Sistema de Cadastro de Pessoas ---")
-    print("1 - Cadastrar pessoa")
-    print("2 - Listar pessoas")
-    print("3 - Editar pessoa")
-    print("4 - Excluir pessoa")
-    print("0 - Sair")
+    print('••' *15)
+    print('Sistema de Cadastro de Pessoas')
+    print('••' *15)
+    print()
+    print('1 - Cadastrar pessoa')
+    print('2 - Listar pessoas')
+    print('3 - Editar pessoa')
+    print('4 - Excluir pessoa')
+    print('0 - Sair')
 
 
 def cadastrar_pessoa():
-    """
-    Solicita os dados do usuário e cadastra uma nova pessoa na lista.
-    """
-    print("\n--- Cadastro de Pessoa ---")
+    print()
+    print('----Cadastro de Pessoa----')
+    print()
 
-    # Entrada do nome, removendo espaços extras e colocando a primeira letra maiúscula
-    nome = input("Nome: ").strip().title()
+    nome = input('Nome: ').strip().title()
+    idade = input('Idade: ').strip()
+    email = input('Email: ').strip()
 
-    # Entrada da idade (como string)
-    idade = input("Idade: ").strip()
-
-    # Entrada do email
-    email = input("Email: ").strip()
-
-    # Cria um dicionário com os dados da pessoa
     pessoa = {
-        "nome": nome,
-        "idade": idade,
-        "email": email
+        'nome': nome,
+        'idade': idade,
+        'email': email
     }
 
-    # Adiciona a pessoa à lista de pessoas
     pessoas.append(pessoa)
-
-    print("\nPessoa cadastrada com sucesso!")
+    print()
+    print('Pessoa cadastrada com sucesso!')
 
 
 def listar_pessoas():
-    """
-    Exibe todas as pessoas cadastradas.
-    """
-    # Verifica se a lista está vazia
     if not pessoas:
-        print("\nNenhuma pessoa cadastrada.")
+        print()
+        print('Nenhuma pessoa cadastrada.')
         return
 
-    print("\n--- Lista de Pessoas ---")
-
-    # Percorre a lista de pessoas e exibe cada uma
-    # enumerate serve para mostrar a numeração começando do 1
+    print()
+    print('----Lista de Pessoas----')
+    print()
     for i, pessoa in enumerate(pessoas, start=1):
-        print(f"{i}. Nome: {pessoa['nome']} | Idade: {pessoa['idade']} | Email: {pessoa['email']}")
+        print(f"{i}. {pessoa['nome']} | {pessoa['idade']} anos | {pessoa['email']}")
 
 
 def editar_pessoa():
-    """
-    Permite editar os dados de uma pessoa já cadastrada.
-    """
     listar_pessoas()
 
-    # Se não houver pessoas, encerra a função
     if not pessoas:
         return
 
     try:
-        # Solicita o número da pessoa e ajusta o índice para começar em 0
-        indice = int(input("\nDigite o número da pessoa que deseja editar: ")) - 1
+        print()
+        indice = int(input('Digite o número da pessoa que deseja editar: ')) - 1
 
-        # Verifica se o índice é válido
         if indice < 0 or indice >= len(pessoas):
-            print("Pessoa inválida.")
+            print('Pessoa inválida.')
             return
 
-        # Acessa a pessoa escolhida
         pessoa = pessoas[indice]
 
-        print("\nDeixe em branco para manter o valor atual.")
+        print()
+        print('Deixe em branco se não quiser alterar o campo.')
 
-        # Solicita novos valores
-        novo_nome = input(f"Nome ({pessoa['nome']}): ").strip().title()
-        nova_idade = input(f"Idade ({pessoa['idade']}): ").strip()
-        novo_email = input(f"Email ({pessoa['email']}): ").strip()
+        nome = input(f"Nome ({pessoa['nome']}): ").strip()
+        idade = input(f"Idade ({pessoa['idade']}): ").strip()
+        email = input(f"Email ({pessoa['email']}): ").strip()
 
-        # Atualiza apenas os campos que foram preenchidos
-        if novo_nome:
-            pessoa["nome"] = novo_nome
-        if nova_idade:
-            pessoa["idade"] = nova_idade
-        if novo_email:
-            pessoa["email"] = novo_email
+        if nome:
+            pessoa['nome'] = nome.title()
+        if idade:
+            pessoa['idade'] = idade
+        if email:
+            pessoa['email'] = email
 
-        print("\nPessoa editada com sucesso!")
+        print()
+        print('Dados atualizados com sucesso!')
+        print()
 
     except ValueError:
-        # Captura erro caso o usuário digite algo que não seja número
-        print("Entrada inválida.")
+        print('Entrada inválida. Digite um número.')
 
 
 def excluir_pessoa():
-    """
-    Remove uma pessoa da lista.
-    """
     listar_pessoas()
 
-    # Se não houver pessoas, encerra a função
     if not pessoas:
         return
 
     try:
-        # Solicita o número da pessoa e ajusta o índice
-        indice = int(input("\nDigite o número da pessoa que deseja excluir: ")) - 1
+        indice = int(input('\nDigite o número da pessoa que deseja excluir: ')) - 1
 
-        # Verifica se o índice é válido
         if indice < 0 or indice >= len(pessoas):
-            print("Pessoa inválida.")
+            print('Pessoa inválida.')
             return
 
-        # Remove a pessoa da lista
         pessoas.pop(indice)
-        print("\nPessoa excluída com sucesso!")
+        print()
+        print('Pessoa removida com sucesso!')
+        print()
 
     except ValueError:
-        print("Entrada inválida.")
+        print('Entrada inválida. Digite um número.')
 
 
 def main():
-    """
-    Função principal que controla o funcionamento do sistema.
-    """
     while True:
         menu()
-        opcao = input("\nEscolha uma opção: ").strip()
+        print()
+        opcao = input('Escolha uma opção: ').strip()
+        print()
 
-        if opcao == "1":
+        if opcao == '1':
             cadastrar_pessoa()
-        elif opcao == "2":
+        elif opcao == '2':
             listar_pessoas()
-        elif opcao == "3":
+        elif opcao == '3':
             editar_pessoa()
-        elif opcao == "4":
+        elif opcao == '4':
             excluir_pessoa()
-        elif opcao == "0":
-            print("\nSaindo do sistema. Até mais! 👋")
+        elif opcao == '0':
+            print('\nSaindo do sistema. Até mais!')
             break
         else:
-            print("Opção inválida. Tente novamente.")
+            print('Opção inválida. Tente novamente.')
 
 
-# Ponto de entrada do programa
-# Chama a função principal para iniciar o sistema
-if __name__ == "__main__":
-    main()
+    
+main()
+

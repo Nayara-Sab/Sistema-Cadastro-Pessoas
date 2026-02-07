@@ -1,6 +1,7 @@
 # Sistema de Cadastro de Pessoas (Python)
 
-Projeto simples em Python para cadastro, listagem, edição e exclusão de pessoas via terminal.
+Desenvolvi este projeto para praticar lógica de programação, organização de código e tratamento de erros.
+É um exercício pessoal durante meus estudos em Python, principalmente para entender melhor listas, funções e fluxo de menus no terminal.
 
 ## Funcionalidades
 
@@ -12,7 +13,6 @@ Projeto simples em Python para cadastro, listagem, edição e exclusão de pesso
 ## Tecnologias utilizadas
 
 - Python 3
-- Execução via terminal
 
 ## Como executar o projeto
 
@@ -27,9 +27,6 @@ cd sistema.cadastro.pessoas
 python main.py
 ```
 
-## Objetivo
-
-Este projeto foi desenvolvido com o objetivo de praticar lógica de programação e organização de código.
 
 ## melhorias futuras
 
