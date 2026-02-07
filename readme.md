@@ -18,10 +18,10 @@ Desenvolvi este projeto para praticar lógica de programação, organização de
 
 ```bash
 # Clone o repositório
-git clone https://github.com/nayara-sab/sistema.cadastro.pessoas.git
+git clone https://github.com/nayara-sab/Sistema-Cadastro-Pessoas.git
 
 # Acesse a pasta do projeto
-cd sistema.cadastro.pessoas
+cd sistema-cadastro
 
 # Execute o programa
 python main.py
